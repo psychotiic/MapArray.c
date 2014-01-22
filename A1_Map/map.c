@@ -23,21 +23,29 @@ self->entry = newNode; // link next
 int map_put(map_t* self, const char* key, const char* val) {
   assert(self != NULL);
 map_entry_t* current;
-//current = self->entry->key;
+current = self->entry;
 while(current->next != NULL){
 	current = current->next;
+printf("we are inside the while loop");
 	
 }
-self->entry->key = key;
-self->entry->value = val;
+//self->entry->key = key;
+//self->entry->value = val;
 map_entry_t* newNode = malloc(sizeof(map_entry_t));
+newNode = current;
+newNode->key = key;
+newNode->value = val;
+newNode->next = NULL;
+printf("node cotains: ");
+printf(newNode->value);
+printf("\n");
 
-
+/*
 printf("\ntry printing the list \n");
 printf(self->entry->key);
 printf(" :was the key and the value is \n");
 printf(self->entry->value);
-printf("\n");
+printf("\n"); */
 
 
 }
@@ -46,7 +54,7 @@ const char* map_get(map_t* self, const char* key) {
   assert(self != NULL);
 const char* target = key;
 int i=0;
-for(i; i<=self->size; i++) 
+for(i; i<=5; i++) 
 {
 printf("\n\ninside the list\n");
 printf(self->entry->value);
